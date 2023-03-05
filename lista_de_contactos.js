@@ -61,5 +61,4 @@ function preborrar(contactos){
         console.log('El nombre escogido no existe. Comienza de nuevo la operación')
     }
 
-
 }
