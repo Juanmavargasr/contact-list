@@ -1,17 +1,26 @@
-let contactos = [];
+let contactos = ['JUAN','MANUEL','CAMILO','PEDRO'];
 
 function saludar(){
-    alert('Bienvenido a tu listado de contactos. ¿Qué quieres hacer?')
-    alert('1. Agregar un nuevo contacto.')
-    alert('2. Borrar un contacto.')
-    alert('3. Mostrar tu listado de contactos')
-    let opcion = prompt('Escoge una opción')
+    alert('Bienvenido a tu listado de contactos. ¿Qué quieres hacer?');
+    alert('1. Agregar un nuevo contacto.');
+    alert('2. Borrar un contacto.');
+    alert('3. Mostrar tu listado de contactos');
+    let opcion = prompt('Escoge una opción');
     // opcion = parseInt(opcion)
     if(opcion === '1' || opcion === '2' || opcion === '3') {
-        console.log( `haz escogido la opción ${opcion}`)
+        console.log( `haz escogido la opción ${opcion}`);
+        if (opcion === '1'){
+            agregar(contactos)
+        } else if ( opcion === '2') {
+            preborrar(contactos)
+        } else {
+            mostrar_contactos(contactos)
+        }
     } else {
-        console.log('haz escogido una opción inválida, comienza de nuevo.')
+        console.log('haz escogido una opción inválida, comienza de nuevo.');
     }
+
+
 }
 
 
@@ -62,3 +71,6 @@ function preborrar(contactos){
     }
 
 }
+
+
+saludar()
