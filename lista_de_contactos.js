@@ -1,5 +1,19 @@
 let contactos = ['JUAN','MANUEL','CAMILO','PEDRO'];
 
+// let directorio = {
+//     nombre_contacto: "juan Manuel",
+//     apellidos_contacto: "Vargas Rios",
+//     telefono:3127052879,
+//     email:"juanmavargasr@gmail.com",
+//     }
+
+    let directorio = {
+        nombre_contacto: ["juan Manuel"],
+        apellidos_contacto: ["Vargas Rios"],
+        telefono:[3127052879],
+        email:["juanmavargasr@gmail.com"],
+        }
+
 function saludar(){
     alert('Bienvenido a tu listado de contactos. ¿Qué quieres hacer?');
     alert('1. Agregar un nuevo contacto.');
@@ -24,18 +38,26 @@ function saludar(){
 }
 
 
-function agregar(contactos){
-    alert('NOTA: Debes escribir exactamente el nombre completo del contacto que quieres agregar.')
+function agregar(directorio,nombre_contacto){
+    alert('NOTA: Debes escribir exactamente los datos (Nombres, Apellidos, Teléfono y email) del contacto que quieres agregar.')
     let nombre_del_contacto = prompt('Escribe el nombre del contacto: ')
-    nombre_del_contacto = nombre_del_contacto.toUpperCase()
-    contactos.push(nombre_del_contacto)
-    console.log(`El contacto ${nombre_del_contacto} ha sido agregado`)
+        nombre_del_contacto = nombre_del_contacto.toUpperCase()
+        directorio.nombre_contacto.push(nombre_del_contacto)
+    let apellido_del_contacto = prompt('Escribe el apellido del contacto: ')
+        apellido_del_contacto = apellido_del_contacto.toUpperCase()
+        directorio.apellidos_contacto.push(apellido_del_contacto)
+    let telefono_del_contacto = prompt('Escribe el teléfono del contacto: ')
+        directorio.telefono.push(telefono_del_contacto)
+    let email_del_contacto = prompt('Escribe el email del contacto: ')
+        email_del_contacto = email_del_contacto.toUpperCase()
+        directorio.email.push(email_del_contacto)
+    alert(`El contacto ${nombre_del_contacto} ${apellido_del_contacto} ha sido agregado con teléfono ${telefono_del_contacto} y email ${email_del_contacto} `)
 }
 
 
-function mostrar_contactos(contactos){
+function mostrar_contactos(directorio){
     alert('Éstos son los contactos que tienes registrados: ')
-    console.log(contactos)
+    console.log(directorio)
 }
 
 
