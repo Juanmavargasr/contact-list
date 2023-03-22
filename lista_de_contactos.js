@@ -22,19 +22,58 @@ function saludar(){
     alert('1. Agregar un nuevo contacto.');
     alert('2. Borrar un contacto.');
     alert('3. Mostrar tu listado de contactos');
+    alert('4. Actualizar un contacto')
     let opcion = prompt('Escoge una opción');
     // opcion = parseInt(opcion)
-    if(opcion === '1' || opcion === '2' || opcion === '3') {
+    if(opcion === '1' || opcion === '2' || opcion === '3' || opcion === '4') {
         console.log( `haz escogido la opción ${opcion}`);
         if (opcion === '1'){
             agregar(directorio)
         } else if ( opcion === '2') {
             preborrar(directorio)
-        } else {
+        } else if (opcion === '3') {
             mostrar_contactos(directorio)
+        } else {
+            actualizar(directorio)
         }
     } else {
         console.log('haz escogido una opción inválida, comienza de nuevo.');
+    }
+}
+
+
+function actualizar(directorio){
+    alert ('Para actualizar un contacto debes escribir su nombre exacto. ¿Deseas ver antes el listado de nombres de los contactos?')
+    let eleccion = prompt('1. SÍ - 2. NO')
+    if (eleccion === '1') {
+        console.log(directorio.nombre_contacto)
+        var nombre_a_actualizar = prompt('Escribe el nombre del contacto que quieres actualizar: ')
+    } else if (eleccion === '2') {
+        var nombre_a_actualizar = prompt('Escribe el nombre del contacto que quieres actualizar: ')
+    } else {
+        console.log('Escogiste una opción inválida, ahora escoge el nombre a actualizar')
+        var nombre_a_actualizar = prompt('Escribe el nombre del contacto que quieres borrar: ')
+    }
+    nombre_a_actualizar = nombre_a_actualizar.toUpperCase()
+    var posicion_a_actualizar = directorio.nombre_contacto.indexOf(nombre_a_actualizar)
+
+    if (posicion_a_actualizar >= 0) {
+        var existe = true
+    } else {
+        var existe = false
+    }
+
+    if (existe = true) {
+        directorio.id[posicion_a_actualizar] = prompt('Escribe el nuevo id del contacto: ')
+        directorio.nombre_contacto[posicion_a_actualizar] = prompt('Escribe el nuevo nombre del contacto: ')
+        directorio.apellidos_contacto[posicion_a_actualizar] = prompt('Escribe el nuevo aprellido del contacto: ')
+        directorio.telefono[posicion_a_actualizar] = prompt('Escribe el nuevo teléfono del contacto: ')
+        directorio.ubicacion.ciudad[posicion_a_actualizar] = prompt('Escribe la nueva ciudad del contacto: ')
+        directorio.ubicacion.direccion[posicion_a_actualizar] = prompt('Escribe la nueva dirección del contacto: ')
+        console.log(`Tu nueva lista de contactos es:`)
+        alert(directorio)
+    } else {
+        console.log('El nombre escogido no existe. Comienza de nuevo la operación')
     }
 }
 
